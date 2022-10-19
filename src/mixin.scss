@@ -1,0 +1,209 @@
+@import "./mixins/throw";
+@import "./mixins/display";
+@import "./mixins/block-size";
+@import "./mixins/image";
+@import "./mixins/font";
+@import "./mixins/animation";
+
+@mixin navLink {
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  font-size: 15px;
+  @include transitions((border-color, color, transform));
+  &:focus {
+    outline: none;
+  }
+  &:hover,
+  &:focus {
+    @include transitions(
+      (border-color, color, transform),
+      (
+        color: #6e9c9f,
+        border-color: #6e9c9f,
+        transform: translateX(2px),
+      )
+    );
+  }
+  &:active {
+    @include transitions(
+      (border-color, color, transform),
+      (
+        color: #346466,
+        border-color: #346466,
+      )
+    );
+  }
+}
+
+@mixin btnSlade {
+  &_btn {
+    &-prev,
+    &-next {
+      @include throw(btn);
+      @include d-flex(
+        (
+          al: center,
+        )
+      );
+      position: absolute;
+      top: 50%;
+      z-index: 15;
+      transform: translateY(-50%);
+      @include transition(transform);
+      & svg > path {
+        @include transition(stroke);
+      }
+      &:hover svg > path,
+      &:focus svg > path {
+        @include transition(stroke, #6e9c9f);
+      }
+      &:active svg > path {
+        @include transition(stroke, #417a7d);
+      }
+    }
+    &-prev {
+      left: -60px;
+      &:hover,
+      &:focus,
+      &:active {
+        @include transition(transform, translate(-5px, -50%) scale(1.2));
+      }
+    }
+    &-next {
+      right: -60px;
+      &:hover,
+      &:focus,
+      &:active {
+        @include transition(transform, translate(5px, -50%) scale(1.2));
+      }
+    }
+  }
+}
+
+@mixin btn-link {
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid #6e9c9f;
+  padding: 22px 50px;
+  @include transitions((border-color, background-color, color));
+  &:focus {
+    outline: none;
+  }
+  @media (max-width: 767px) {
+    padding: 19px 40px;
+  }
+}
+
+@mixin us-link {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  @include transition(border-color);
+  & span {
+    @include transition(color);
+    & svg > path {
+      @include transition(fill);
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover,
+  &:focus {
+    @include transition(border-color, #6e9c9f);
+  }
+  &:active {
+    @include transition(border-color, #417a7d);
+  }
+  &:hover span,
+  &:focus span {
+    @include transition(color, #6e9c9f);
+    & svg > path {
+      @include transition(fill, #6e9c9f);
+    }
+  }
+  &:active span {
+    @include transition(color, #417a7d);
+    & svg > path {
+      @include transition(fill, #417a7d);
+    }
+  }
+}
+
+@mixin us-input {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000000;
+  padding: 0 0 16px 0;
+  font-size: 17px;
+  font-weight: 500;
+  @include transition(border-color);
+  &:not(input) {
+    max-width: inherit;
+    min-height: 143px;
+  }
+  &::placeholder {
+    font-size: 17px;
+    font-weight: 500;
+    color: #868686;
+    @include transition(color);
+  }
+  &:hover::placeholder,
+  &:focus::placeholder,
+  &:active::placeholder {
+    @include transition(color, #42979b);
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    @include transition(border-color, #42979b);
+  }
+}
+
+@mixin us-btn {
+  @include btn-link();
+  color: #fff;
+  background-color: #6e9c9f;
+  &:hover,
+  &:focus {
+    @include transition(background-color, #42979b);
+  }
+  &:active {
+    @include transitions(
+      (border-color, background-color, color),
+      (
+        border-color: #42979b,
+        background-color: #fff,
+        color: #42979b,
+      )
+    );
+  }
+}
+
+@mixin us-btn-2 {
+  @include btn-link();
+  color: #6e9c9f;
+  background-color: transparent;
+  &:hover,
+  &:focus {
+    @include transitions(
+      (background-color, color),
+      (
+        background-color: #6e9c9f,
+        color: #fff,
+      )
+    );
+  }
+  &:active {
+    @include transitions(
+      (background-color, color),
+      (
+        background-color: #417a7d,
+        color: #fff,
+      )
+    );
+  }
+}

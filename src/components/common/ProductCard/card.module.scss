@@ -1,0 +1,83 @@
+@import "../../../mixin.scss";
+
+.main {
+  @include d-flex(
+    (
+      al: center,
+      di: column,
+    )
+  );
+}
+
+.img {
+  &_height {
+    height: 478px;
+  }
+  &__container {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 550px) {
+    &_height {
+      height: 390px;
+    }
+  }
+}
+
+.title {
+  text-align: center;
+  margin: 0 0 7px;
+  &__box {
+    @include d-flex(
+      (
+        al: center,
+        di: column,
+      )
+    );
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+.link {
+  @include us-link();
+  @include d-flex(
+    (
+      al: center,
+      di: column,
+    )
+  );
+  &__category,
+  &__name {
+    font-weight: 500;
+  }
+  &__category {
+    font-size: 12px;
+    color: #9c9c9c;
+  }
+  &__name {
+    font-size: 20px;
+    & svg {
+      margin-left: 8px;
+      height: 18px;
+    }
+  }
+}
+
+.price {
+  &__current,
+  &__new {
+    font-size: 15px;
+  }
+  &__new {
+    margin-right: 10px;
+  }
+}
+
+.color {
+  & span {
+    display: block;
+    @include block-size(20px, 20px);
+    border-radius: 100%;
+  }
+}

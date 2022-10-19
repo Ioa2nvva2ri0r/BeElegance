@@ -1,0 +1,10 @@
+@import "../../../mixin.scss";
+
+.main {
+  @include d-flex(
+    (
+      al: center,
+    )
+  );
+  @include navLink();
+}

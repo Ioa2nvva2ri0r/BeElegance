@@ -1,0 +1,29 @@
+@import "../../../mixin.scss";
+
+.img {
+  &__container {
+    min-width: 300px;
+    overflow: hidden;
+    user-select: none;
+    &:hover .img__tooltipe {
+      @include transition(opacity, 1);
+    }
+  }
+  &__slide {
+    position: relative;
+  }
+  &__tooltipe {
+    position: absolute;
+    content: "Быстрый просмотр";
+    white-space: nowrap;
+    bottom: 50px;
+    left: 50%;
+    z-index: 10;
+    border-radius: 50px;
+    padding: 12px 17px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px #2424241a;
+    transform: translateX(-50%);
+    @include transition(opacity, 0);
+  }
+}

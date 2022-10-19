@@ -1,0 +1,12 @@
+.price {
+  display: inline-block;
+  &__current,
+  &__new {
+    font-weight: 500;
+    color: #998e78;
+    &_noActive {
+      text-decoration: line-through;
+      color: #9c9c9c;
+    }
+  }
+}

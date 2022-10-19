@@ -1,0 +1,25 @@
+@import "../../../mixin.scss";
+
+.main {
+  padding-right: 29px;
+}
+
+.list {
+  @include throw(li);
+  @include d-flex(
+    (
+      al: center,
+    )
+  );
+}
+
+.item {
+  margin-bottom: 5px;
+  &:not(:last-child) {
+    margin-right: 45px;
+  }
+}
+
+.link {
+  @include navLink;
+}

@@ -1,0 +1,45 @@
+@import "../../../mixin.scss";
+
+.container {
+  &:not(:last-child) {
+    margin-bottom: 81px;
+  }
+  max-width: inherit;
+  @media (max-width: 620px) {
+    &:not(:last-child) {
+      margin-bottom: 60px;
+    }
+  }
+  @media (max-width: 550px) {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.title {
+  margin: 0 0 47px 0;
+  font-size: 25px;
+  font-weight: 500;
+  @media (max-width: 620px) {
+    text-align: center;
+    font-size: 22px;
+    margin: 0 0 35px 0;
+  }
+}
+
+.input {
+  @include us-input();
+  &__list,
+  &__item {
+    max-width: inherit;
+  }
+  &__list {
+    @include throw(li);
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
+  }
+}

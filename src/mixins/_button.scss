@@ -1,0 +1,9 @@
+@mixin btn() {
+  display: inline-block;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}

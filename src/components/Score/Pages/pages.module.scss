@@ -1,0 +1,54 @@
+@import "../../../mixin.scss";
+
+.list {
+  @include throw(li);
+  @include d-flex(
+    (
+      al: center,
+      ju: center,
+    )
+  );
+  padding-top: 30px;
+}
+
+.item {
+  &:not(:last-child) {
+    margin-right: 15px;
+  }
+}
+
+.link {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #000;
+  padding: 1px 11px 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  background-color: transparent;
+  @include transitions((background-color, color));
+  &:hover,
+  &:focus,
+  &:active {
+    @include transitions(
+      (background-color, color),
+      (
+        background-color: #000,
+        color: #fff,
+      )
+    );
+  }
+  &__active {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+.slider {
+  &__container {
+    position: relative;
+    max-width: 200px;
+    margin: 30px auto;
+  }
+}

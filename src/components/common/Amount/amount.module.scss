@@ -1,0 +1,28 @@
+@import "../../../mixin.scss";
+
+.main {
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #afafaf;
+  font-size: 20px;
+  @include transitions((border-color, color));
+  &:hover,
+  &:focus,
+  &:active {
+    @include transitions(
+      (border-color, color),
+      (
+        border-color: #6e9c9f,
+        color: #6e9c9f,
+      )
+    );
+  }
+}
+
+.label {
+  opacity: 0;
+  z-index: -1;
+  width: 0;
+  height: 0;
+  font-size: 0;
+}

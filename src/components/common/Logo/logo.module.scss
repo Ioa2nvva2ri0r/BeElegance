@@ -1,0 +1,30 @@
+@import "../../../mixin.scss";
+
+.main {
+  display: inline-block;
+  text-decoration: none;
+  max-width: 141px;
+  margin: 0 20px 0 0;
+  outline: 2px solid transparent;
+  outline-offset: 5px;
+  @include transition(outline-color);
+  &:hover,
+  &:focus,
+  &:active {
+    @include transition(outline-color, #6e9c9f);
+  }
+}
+
+.title {
+  @include d-flex(
+    (
+      al: center,
+    )
+  );
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  & svg {
+    margin-right: 11px;
+  }
+}
