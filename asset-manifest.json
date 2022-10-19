@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/be_elegance/static/css/main.34af8c54.css",
+    "main.js": "/be_elegance/static/js/main.1908db30.js",
+    "static/media/Visa.svg": "/be_elegance/static/media/Visa.766de341f3e0e9e005ee08cecbb73f33.svg",
+    "index.html": "/be_elegance/index.html",
+    "main.34af8c54.css.map": "/be_elegance/static/css/main.34af8c54.css.map",
+    "main.1908db30.js.map": "/be_elegance/static/js/main.1908db30.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.34af8c54.css",
+    "static/js/main.1908db30.js"
+  ]
+}
