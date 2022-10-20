@@ -1,0 +1,258 @@
+@import "../../../mixin.scss";
+
+.form {
+  @include d-flex(
+    (
+      ju: space-between,
+      wr: wrap,
+    )
+  );
+  @media (max-width: 620px) {
+    justify-content: center;
+  }
+}
+
+.list {
+  &__input {
+    @include throw(li);
+    width: 100%;
+    max-width: 450px;
+    margin: 0 40px 60px 0;
+  }
+  @media (max-width: 767px) {
+    &__input {
+      margin: 0 0 60px 0;
+    }
+  }
+}
+
+.box {
+  &__orderPayment {
+    @include d-flex(
+      (
+        di: column,
+      )
+    );
+    width: 100%;
+    min-width: 250px;
+    max-width: 300px;
+  }
+}
+
+.order {
+  &__box {
+    margin-bottom: 145px;
+  }
+  &__title {
+    margin: 0 0 47px 0;
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &__list {
+    @include throw(li);
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+  }
+  &__product {
+    @include d-flex(
+      (
+        al: center,
+        ju: space-between,
+      )
+    );
+    &_name,
+    &_category,
+    &_price {
+      font-weight: 500;
+      font-size: 17px;
+    }
+    &_category {
+      color: #9c9c9c;
+    }
+    &_title {
+      @include d-flex(
+        (
+          di: column,
+        )
+      );
+    }
+    &_category {
+      font-size: 12px;
+    }
+  }
+  @media (max-width: 620px) {
+    &__box {
+      margin-bottom: 80px;
+    }
+    &__title {
+      font-size: 22px;
+      margin: 0 0 35px 0;
+    }
+  }
+}
+
+.total {
+  @include d-flex(
+    (
+      al: center,
+      ju: space-between,
+    )
+  );
+  &__list {
+    @include throw(li);
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 15px;
+      border-bottom: 1px solid #f1eadc;
+    }
+    &:last-child .total {
+      position: relative;
+      padding: 15px 0;
+      background-color: #f1eadc;
+      z-index: 1;
+      &::after {
+        position: absolute;
+        content: "";
+        z-index: -1;
+        top: 0;
+        left: -18px;
+        @include block-size(100%, 100%);
+        padding: 0 18px;
+        background-color: #f1eadc;
+      }
+    }
+  }
+  &__title,
+  &__price {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  @media (max-width: 620px) {
+    &__item {
+      &:last-child .total {
+        &::after {
+          left: -15px;
+          padding: 0 15px;
+        }
+      }
+    }
+  }
+}
+
+.payment {
+  &__box {
+    margin-bottom: 47px;
+  }
+  &__title {
+    margin: 0 0 47px 0;
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &__list {
+    @include throw(li);
+  }
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__input {
+    z-index: -1;
+    opacity: 0;
+    @include block-size(0px, 0px);
+    & + label {
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 17px;
+      @include transition(color);
+      & span {
+        position: relative;
+        display: inline-block;
+        @include block-size(22px, 22px);
+        border: 1px solid #000000;
+        margin-right: 14px;
+        @include transition(border-color);
+        &::before {
+          position: absolute;
+          content: "";
+          top: 50%;
+          left: 50%;
+          @include block-size(10px, 10px);
+          background-color: transparent;
+          transform: translate(-50%, -50%);
+          @include transition(background-color);
+        }
+      }
+    }
+    &:checked + label {
+      & span::before {
+        @include transition(background-color, #000000);
+      }
+    }
+    &:checked + label:hover,
+    &:checked + label:focus,
+    &:checked + label:active {
+      @include transition(color, #6e9c9f);
+      & span {
+        @include transition(border-color, #6e9c9f);
+        &::before {
+          @include transition(background-color, #6e9c9f);
+        }
+      }
+    }
+    &:not(:checked) + label:hover,
+    &:not(:checked) + label:focus,
+    &:not(:checked) + label:active {
+      @include transition(color, #6e9c9f);
+      & span {
+        @include transition(border-color, #6e9c9f);
+      }
+    }
+  }
+  @media (max-width: 620px) {
+    &__title {
+      font-size: 22px;
+      margin: 0 0 35px 0;
+    }
+  }
+}
+
+.btn {
+  &__received {
+    @include us-btn();
+    @include d-flex(
+      (
+        al: center,
+        ju: center,
+      )
+    );
+    & svg {
+      width: 25px;
+      height: 25px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.status {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 12px 25px;
+  font-weight: 500;
+  &__ok {
+    background-color: #f1eadc;
+  }
+  &__err {
+    background-color: red;
+    color: #fff;
+  }
+}

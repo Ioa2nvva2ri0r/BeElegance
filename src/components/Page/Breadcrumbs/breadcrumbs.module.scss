@@ -1,0 +1,76 @@
+@import "../../../mixin.scss";
+
+.nav {
+  &__list {
+    @include throw(li);
+    @include d-flex(
+      (
+        al: center,
+      )
+    );
+  }
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      padding-right: 42px;
+      &::after {
+        position: absolute;
+        content: "—";
+        right: 15px;
+        @include block-size(16px, 100%);
+        font-weight: 500;
+        color: #000;
+      }
+      & a {
+        @include transition(color);
+        &:focus {
+          outline: none;
+        }
+        &:hover::after,
+        &:focus::after,
+        &:active::after {
+          color: #000;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+          @include transition(color, #6e9c9f);
+        }
+      }
+    }
+    &:last-child a {
+      color: #919191;
+      &:focus {
+        outline: none;
+      }
+    }
+    @media (max-width: 767px) {
+      &:not(:last-child) {
+        padding-right: 30px;
+        &::after {
+          right: 7px;
+        }
+      }
+      & a {
+        font-size: 15px;
+      }
+    }
+    @media (max-width: 767px) {
+      &:not(:last-child) {
+        padding-right: 25px;
+        &::after {
+          right: 4px;
+        }
+      }
+      & a {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.path {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 500;
+}

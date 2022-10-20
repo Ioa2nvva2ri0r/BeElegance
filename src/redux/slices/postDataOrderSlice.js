@@ -14,7 +14,10 @@ export const orderDataAPI = createAsyncThunk(
     const response = await axios({
       method: 'POST',
       url: `${env.REACT_APP__API_URL}/${env.REACT_APP__API_PATH_POST}`,
-      data,
+      data: {
+        path: env.PUBLIC_URL,
+        ...data,
+      },
     });
 
     return {

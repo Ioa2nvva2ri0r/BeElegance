@@ -2,7 +2,6 @@
 @import "./mixins/display";
 @import "./mixins/block-size";
 @import "./mixins/image";
-@import "./mixins/font";
 @import "./mixins/animation";
 
 @mixin navLink {
@@ -78,6 +77,26 @@
         @include transition(transform, translate(5px, -50%) scale(1.2));
       }
     }
+  }
+}
+
+@mixin btn-close {
+  @include throw(btn);
+  @include transition(transform);
+  &:hover,
+  &:focus,
+  &:active {
+    @include transition(transform, scale(1.2));
+  }
+  & svg > path {
+    @include transition(stroke);
+  }
+  &:hover svg > path,
+  &:focus svg > path {
+    @include transition(stroke, #6e9c9f);
+  }
+  &:active svg > path {
+    @include transition(stroke, #417a7d);
   }
 }
 
@@ -206,4 +225,30 @@
       )
     );
   }
+}
+
+@mixin modal-scale($action) {
+  @include animation(
+    (
+      opacity: if($action == open, 0, 1),
+      transform: if($action == open, scale(0), scale(1)),
+    ),
+    (
+      opacity: if($action == close, 0, 1),
+      transform: if($action == close, scale(0), scale(1)),
+    )
+  );
+}
+
+@mixin modal-Y($action, $offset: 100px) {
+  @include animation(
+    (
+      opacity: if($action == open, 0, 1),
+      transform: if($action == open, translateY($offset), translateY(0)),
+    ),
+    (
+      opacity: if($action == close, 0, 1),
+      transform: if($action == close, translateY($offset), translateY(0)),
+    )
+  );
 }

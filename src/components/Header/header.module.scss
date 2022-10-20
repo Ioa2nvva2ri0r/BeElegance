@@ -13,41 +13,89 @@
   padding: 52px 0 37px 0;
   @media (max-width: 767px) {
     padding: 30px 0 17px 0;
-    justify-content: space-around;
+    flex-direction: column;
+    & a[aria-label="Логотип"] {
+      margin: 0;
+    }
+  }
+  &__alert {
+    & a[aria-label="Логотип"] {
+      & strong {
+        color: #fff;
+        font-weight: 600;
+      }
+      & svg > path {
+        fill: #fff;
+      }
+    }
   }
 }
 
 .box {
-  &__tel {
+  &__tel,
+  &__nav {
     @include d-flex(
       (
         al: center,
       )
     );
   }
+  &__tel {
+    margin: 0 67px 5px 0;
+  }
   @media (max-width: 767px) {
-    &__tel {
+    &__nav {
+      justify-content: space-around;
+      width: 100%;
       padding: 20px 0;
+    }
+    &__tel {
+      margin: 0 50px 5px 0;
     }
   }
 }
 
 .nav {
   @media (max-width: 1060px) {
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 45px;
+    z-index: 150;
+    padding: 10px 35px;
+    background: linear-gradient(#6e9c9fcb, #f1eadc);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    @include modal-Y(open, -100px);
+    &__close {
+      @include modal-Y(close, -100px);
+    }
+    &__list {
+      align-items: flex-start;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    &__item {
+      margin: 0 30px 8px 0;
+    }
+    &__link {
+      font-weight: 600;
+      color: #fff;
+      &:hover,
+      &:focus,
+      &:active {
+        color: #fff;
+        border-color: #fff;
+      }
+    }
   }
 }
 
 .link {
-  &__tel {
-    margin: 0 67px 5px 0;
-  }
-  @media (max-width: 767px) {
-    &__tel {
-      margin: 0 50px 5px 0;
-      font-weight: 600;
-      color: #6e9c9f;
-    }
+  &__tel_alert {
+    margin: 0 50px 5px 0;
+    font-weight: 600;
+    color: #fff;
   }
 }
 
@@ -69,12 +117,17 @@
     &:active svg > path {
       @include transition(fill, #6e9c9f);
     }
+    &_alert {
+      & svg > path {
+        fill: #fff;
+      }
+    }
     &_length {
       position: absolute;
       bottom: -4px;
       left: -8px;
       border-radius: 2px;
-      padding: 1px 3px 3px 3px;
+      padding: 1px 4px 3px 4px;
       background-color: #6e9c9fa3;
       font-size: 15px;
       font-weight: 500;
@@ -137,6 +190,11 @@
     &:active {
       @include transition(transform, scale(1));
     }
+    &_alert {
+      & svg > g > path {
+        fill: #fff;
+      }
+    }
   }
   &__menu {
     margin-left: 25px;
@@ -148,18 +206,9 @@
     &:active svg > rect {
       @include transition(fill, #6e9c9f);
     }
-  }
-  @media (max-width: 767px) {
-    &__call {
-      & svg > g > path {
-        stroke: #6e9c9f;
-      }
-    }
-  }
-  @media (max-width: 550px) {
-    &__call {
-      & svg > g > path {
-        stroke: transparent;
+    &_alert {
+      & svg > rect {
+        fill: #fff;
       }
     }
   }

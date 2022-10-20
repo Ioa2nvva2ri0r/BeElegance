@@ -70,22 +70,6 @@ input[type="text"]::-ms-reveal {
 }
 
 .swiper {
-  &-pagination {
-    width: max-content !important;
-    bottom: 54px !important;
-    right: 173px !important;
-    left: initial !important;
-    &-bullet {
-      width: 30px !important;
-      height: 4px !important;
-      margin: 0 6px !important;
-      border-radius: 0 !important;
-      background-color: #d1d1d1 !important;
-      &-active {
-        background-color: #6e9c9f !important;
-      }
-    }
-  }
   &-3d &-slide-shadow-left {
     background-image: linear-gradient(to left, rgba(110, 156, 159, 0.5), rgba(0, 0, 0, 0)) !important;
   }
@@ -131,10 +115,11 @@ input[type="text"]::-ms-reveal {
     }
   }
   @media (max-width: 767px) {
-    &-pagination {
-      left: 50% !important;
-      right: 50% !important;
-      transform: translateX(-50%) !important;
+    &-3d &-slide-shadow-left {
+      background-image: linear-gradient(to left, rgba(246, 196, 165, 0.5), rgba(0, 0, 0, 0)) !important;
+    }
+    &-3d &-slide-shadow-right {
+      background-image: linear-gradient(to right, rgba(246, 196, 165, 0.5), rgba(0, 0, 0, 0)) !important;
     }
   }
   @media (max-width: 550px) {

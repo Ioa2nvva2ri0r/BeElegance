@@ -1,0 +1,402 @@
+@import "../../../mixin.scss";
+
+.main {
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 77px;
+  &__header {
+    display: table-caption;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 26px;
+  }
+  &__body {
+    display: table-caption;
+  }
+  &__title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  @media (max-width: 1060px) {
+    &__header {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+    }
+    &__title {
+      font-size: 17px;
+    }
+  }
+  @media (max-width: 550px) {
+    &__header {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    &__title {
+      font-size: 12px;
+    }
+  }
+}
+
+.cell {
+  &__product {
+    min-width: 145px;
+    max-width: 475px;
+  }
+  &__price {
+    max-width: 190px;
+  }
+  &__amount {
+    max-width: 285px;
+  }
+  &__total {
+    max-width: 158px;
+  }
+  @media (max-width: 1060px) {
+    &__price {
+      max-width: 150px;
+    }
+    &__amount {
+      max-width: 160px;
+    }
+    &__total {
+      max-width: 110px;
+    }
+  }
+  @media (max-width: 767px) {
+    &__price,
+    &__amount,
+    &__total {
+      text-align: center;
+    }
+    &__price {
+      max-width: 100px;
+    }
+    &__amount {
+      max-width: 120px;
+    }
+    &__total {
+      max-width: 70px;
+    }
+  }
+  @media (max-width: 620px) {
+    &__price {
+      max-width: 65px;
+    }
+    &__total {
+      max-width: 50px;
+    }
+  }
+  @media (max-width: 550px) {
+    &__product {
+      min-width: 100px;
+    }
+    &__total,
+    &__price {
+      font-size: 12px;
+    }
+  }
+}
+
+.string {
+  &__title,
+  &__product {
+    @include d-flex(
+      (
+        al: center,
+      )
+    );
+  }
+  &__product {
+    &:not(:last-child) {
+      margin-bottom: 50px;
+    }
+  }
+  @media (max-width: 1060px) {
+    &__product {
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+  @media (max-width: 550px) {
+    &__product {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.img {
+  @include block-size(137px, 179px);
+  &__box {
+    margin: 0 36px 15px 0;
+  }
+  @media (max-width: 1060px) {
+    &__box {
+      margin: 0 0 15px 0;
+    }
+  }
+  @media (max-width: 550px) {
+    @include block-size(90px, 120px);
+    &__box {
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+.content {
+  @include d-flex(
+    (
+      al: center,
+    )
+  );
+  &__title {
+    @include d-flex(
+      (
+        al: flex-start,
+        di: column,
+      )
+    );
+    margin: 0;
+    & span {
+      font-weight: 500;
+    }
+    &_category {
+      @include d-flex(
+        (
+          al: center,
+        )
+      );
+      font-size: 12px;
+      color: #9c9c9c;
+    }
+    &_color {
+      display: inline-block;
+      @include block-size(10px, 10px);
+      margin-left: 8px;
+      border: 1px solid #c4c4c4;
+      border-radius: 100%;
+      font-size: 0 !important;
+      color: transparent !important;
+    }
+  }
+  &__subtotal {
+    @include d-flex(
+      (
+        al: center,
+        ju: space-between,
+      )
+    );
+    &_title,
+    &_desc {
+      font-weight: 500;
+    }
+    &_title {
+      margin-right: 20px;
+    }
+  }
+  &__discount {
+    text-align: center;
+    width: 100%;
+    max-width: 255px;
+    margin: 0 0 20px 0;
+    & strong {
+      font-weight: 700;
+    }
+    &_err {
+      position: absolute;
+      text-align: center;
+      top: -30px;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      font-weight: 500;
+      color: red;
+    }
+  }
+  &__total {
+    @include d-flex(
+      (
+        al: center,
+      )
+    );
+    margin: 10px 15px;
+    padding: 16px 51px 16px 31px;
+    background-color: #f1eadc;
+    &_title,
+    &_price {
+      font-size: 25px;
+      font-weight: 500;
+    }
+    &_title {
+      margin-right: 69px;
+    }
+  }
+  @media (max-width: 1060px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media (max-width: 767px) {
+    &__discount {
+      &_err {
+        top: -40px;
+      }
+    }
+  }
+  @media (max-width: 550px) {
+    &__title {
+      &_category {
+        font-size: 8px;
+      }
+      &_name {
+        font-size: 12px;
+      }
+      &_color {
+        @include block-size(6px, 6px);
+        margin-left: 5px;
+      }
+    }
+    &__total {
+      padding: 12px 41px 12px 21px;
+      &_title,
+      &_price {
+        font-size: 20px;
+        font-weight: 500;
+      }
+      &_title {
+        margin-right: 55px;
+      }
+    }
+  }
+}
+
+.box {
+  &__imgTitle {
+    @include d-flex(
+      (
+        wr: wrap,
+        al: center,
+      )
+    );
+  }
+  &__discount {
+    position: relative;
+    @include d-flex(
+      (
+        wr: wrap,
+      )
+    );
+    width: 100%;
+    max-width: 525px;
+    margin-right: 20px;
+    &Score {
+      @include d-flex(
+        (
+          wr: wrap,
+          ju: space-between,
+        )
+      );
+      margin-bottom: 68px;
+    }
+  }
+  &__order {
+    @include d-flex(
+      (
+        al: flex-end,
+        di: column,
+      )
+    );
+  }
+  &__total {
+    @include d-flex(
+      (
+        al: center,
+        ju: center,
+        wr: wrap,
+      )
+    );
+  }
+  @media (max-width: 1225px) {
+    &__imgTitle {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 767px) {
+    &__order {
+      align-items: center;
+    }
+  }
+}
+
+.list {
+  &__total {
+    @include throw(li);
+    padding-bottom: 28px;
+  }
+  @media (max-width: 767px) {
+    &__total {
+      padding-bottom: 15px;
+    }
+  }
+}
+
+.input {
+  &__amount {
+    @include block-size(47px, 47px);
+    padding: 12px 9px;
+  }
+  &__discount {
+    @include us-input();
+    max-width: 255px;
+    margin: 0 16px 20px 0;
+    padding: 0 0 23px 0;
+  }
+  @media (max-width: 767px) {
+    &__amount {
+      @include block-size(35px, 35px);
+      font-size: 12px;
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.link {
+  @include us-link();
+}
+
+.btn {
+  &__close {
+    @include btn-close();
+    min-width: 16px;
+    margin-right: 34px;
+  }
+  &__score,
+  &__discount {
+    @include us-btn-2();
+    margin-bottom: 20px;
+  }
+  &__discount {
+    &:disabled {
+      cursor: default;
+      border-color: #9c9c9c;
+      color: #fff;
+      background-color: #9c9c9c;
+    }
+  }
+  &__order {
+    @include us-btn();
+  }
+  @media (max-width: 1060px) {
+    &__close {
+      margin: 0 0 10px 0;
+    }
+  }
+}

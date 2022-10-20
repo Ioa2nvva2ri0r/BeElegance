@@ -1,0 +1,67 @@
+@import "../../../mixin.scss";
+
+.main {
+  @include d-flex(
+    (
+      al: center,
+      di: column,
+    )
+  );
+  padding-top: 130px;
+  @media (max-width: 1225px) {
+    padding-top: 80px;
+  }
+  @media (max-width: 767px) {
+    padding-top: 50px;
+  }
+}
+
+.title {
+  width: 100%;
+  @media (max-width: 550px) {
+    margin: 0 0 50px 0;
+  }
+}
+
+.slider {
+  &__container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 65px;
+  }
+  &__pagination {
+    position: absolute;
+    display: none;
+    width: max-content !important;
+    top: -25px;
+    bottom: initial !important;
+    left: 50% !important;
+    right: 50% !important;
+    transform: translateX(-50%);
+    &_bullet {
+      display: block;
+      width: 30px;
+      height: 4px;
+      margin: 0 6px;
+      background-color: #d1d1d1;
+      &__active {
+        background-color: #6e9c9f;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    &__container {
+      max-width: 380px;
+      margin-bottom: 30px;
+    }
+  }
+  @media (max-width: 550px) {
+    &__pagination {
+      display: flex;
+    }
+  }
+}
+
+.btn {
+  @include us-btn-2();
+}

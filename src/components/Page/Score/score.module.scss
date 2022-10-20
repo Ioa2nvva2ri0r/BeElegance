@@ -1,0 +1,107 @@
+@import "../../../mixin.scss";
+
+.list {
+  &__categories,
+  &__products {
+    @include throw(li);
+  }
+  &__categories {
+    @include d-flex(
+      (
+        al: center,
+        wr: wrap,
+      )
+    );
+    padding-bottom: 82px;
+  }
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(285px, 1fr));
+    gap: 65px 30px;
+  }
+  @media (max-width: 1060px) {
+    &__categories {
+      justify-content: center;
+    }
+  }
+  @media (max-width: 767px) {
+    &__categories {
+      padding-bottom: 60px;
+    }
+    &__products {
+      gap: 30px;
+    }
+  }
+  @media (max-width: 550px) {
+    &__categories {
+      padding-bottom: 40px;
+    }
+  }
+}
+
+.item {
+  &__products {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  &__categories {
+    margin-bottom: 10px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid #000000;
+  padding: 19px 65px;
+  background-color: transparent;
+  font-weight: 500;
+  @include transitions((color, background-color));
+  &__active {
+    background-color: #000000;
+    color: #fff;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover,
+  &:focus,
+  &:active {
+    @include transitions(
+      (color, background-color),
+      (
+        color: #fff,
+        background-color: #000000,
+      )
+    );
+  }
+  @media (max-width: 1225px) {
+    padding: 19px 60px;
+    &__loading {
+      @include block-size(182px, 64px);
+    }
+  }
+  @media (max-width: 767px) {
+    padding: 15px 35px;
+    &__loading {
+      @include block-size(140px, 51px);
+    }
+  }
+  @media (max-width: 620px) {
+    padding: 10px 24px;
+    &__loading {
+      @include block-size(130px, 41px);
+    }
+  }
+  @media (max-width: 550px) {
+    padding: 7px 13px;
+    &__loading {
+      @include block-size(80px, 27px);
+    }
+  }
+}

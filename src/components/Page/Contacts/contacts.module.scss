@@ -1,0 +1,93 @@
+@import "../../../mixin.scss";
+
+.container {
+  overflow: hidden;
+}
+
+.map {
+  width: 100%;
+  height: 476px;
+}
+
+.address {
+  @include throw(li);
+  @include d-flex(
+    (
+      al: center,
+      ju: space-between,
+      wr: wrap,
+    )
+  );
+  padding: 130px 0 100px 0;
+  &__item {
+    margin-bottom: 30px;
+    &:first-child {
+      margin-right: 111px;
+    }
+    &:nth-child(2) {
+      margin-right: 98px;
+    }
+  }
+  &__title {
+    margin: 0 0 19px 0;
+    font-weight: 600;
+  }
+  &__tel,
+  &__email,
+  &__desc {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  &__desc {
+    margin: 0;
+  }
+  @media (max-width: 1225px) {
+    padding: 100px 0 70px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 70px 0 40px 0;
+  }
+  @media (max-width: 550px) {
+    &__title {
+      font-size: 15px;
+      margin: 0 0 15px 0;
+    }
+    &__tel,
+    &__email,
+    &__desc {
+      font-size: 15px;
+    }
+  }
+}
+
+.form {
+  @include d-flex(
+    (
+      al: flex-start,
+      di: column,
+    )
+  );
+  width: 100%;
+  max-width: 443px;
+  &__title {
+    margin: 0 0 62px 0;
+    font-size: 25px;
+    font-weight: 500;
+  }
+  &__list {
+    @include throw(li);
+    width: 100%;
+    max-width: inherit;
+  }
+  &__item {
+    margin-bottom: 35px;
+    max-width: inherit;
+  }
+  &__input,
+  &__textarea {
+    @include us-input();
+  }
+  &__btn {
+    @include us-btn();
+  }
+}

@@ -1,0 +1,248 @@
+@import "../../../mixin.scss";
+
+.main {
+  height: 100%;
+  margin: 0;
+  &__box {
+    position: relative;
+    z-index: 19;
+    height: 100%;
+    width: 100%;
+    max-width: 563px;
+  }
+  &__pagination {
+    position: absolute;
+    display: flex;
+    width: max-content !important;
+    bottom: 54px !important;
+    right: 173px !important;
+    left: initial !important;
+    &_bullet {
+      display: block;
+      width: 30px;
+      height: 4px;
+      margin: 0 6px;
+      background-color: #d1d1d1;
+      &__active {
+        background-color: #6e9c9f;
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    &__pagination {
+      left: 50% !important;
+      right: 50% !important;
+      transform: translateX(-50%) !important;
+      &_bullet__active {
+        background-color: #f6c4a5;
+      }
+    }
+  }
+}
+
+.container {
+  @include d-flex(
+    (
+      al: center,
+      ju: space-between,
+    )
+  );
+  height: 706px;
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 705px;
+    height: 826px;
+    z-index: 1;
+    background-color: #f1eadc;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+  }
+  @media (max-width: 1225px) {
+    flex-direction: column-reverse;
+    height: 990px;
+  }
+  @media (max-width: 767px) {
+    height: 500px;
+    &::after {
+      height: 600px;
+    }
+  }
+  @media (max-width: 550px) {
+    position: relative;
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.content {
+  padding-top: 145px;
+  &__title {
+    margin: 0 0 46px 0;
+    font-weight: 500;
+    font-size: 51px;
+    line-height: 111%;
+  }
+  &__desc {
+    text-align: right;
+    width: 100%;
+    max-width: 385px;
+    margin: 0 0 51px 0;
+    font-size: 20px;
+  }
+  &__btn {
+    @include d-flex(
+      (
+        al: center,
+      )
+    );
+    text-decoration: none;
+    position: absolute;
+    bottom: 190px;
+    left: 75px;
+    z-index: 10;
+    height: 68px;
+    &_icon {
+      @include d-flex(
+        (
+          al: center,
+          ju: center,
+        )
+      );
+      height: inherit;
+      width: 67px;
+      background-color: #6e9c9f1a;
+    }
+    &_desc {
+      @include d-flex(
+        (
+          al: center,
+        )
+      );
+      white-space: nowrap;
+      height: inherit;
+      padding: 0 50px;
+      background-color: #6e9c9f;
+      color: #fff;
+    }
+  }
+  @media (max-width: 1225px) {
+    padding-top: 25px;
+    &__btn {
+      bottom: 130px;
+    }
+    &__title {
+      font-size: 48px;
+      margin: 0 0 40px 0;
+    }
+  }
+  @media (max-width: 767px) {
+    &__title {
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto 25px auto;
+      font-size: 35px;
+      color: #fff;
+      text-shadow: 1px 1px #f6c4a59c, 1px 1px #f6c4a59c;
+    }
+    &__desc {
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+      color: #fff;
+      text-shadow: 1px 1px #f6c4a59c, 1px 1px #f6c4a59c;
+    }
+    &__btn {
+      left: 50%;
+      transform: translateX(-50%);
+      &_desc {
+        background-color: #f6c4a5;
+      }
+      &_icon {
+        background-color: #f6c4a59c;
+        & svg > path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+  @media (max-width: 550px) {
+    &__title {
+      margin: 0 auto 20px auto;
+      font-size: 27px;
+    }
+    &__desc {
+      font-size: 15px;
+    }
+    &__btn {
+      height: 50px;
+      &_icon {
+        width: 55px;
+      }
+      &_desc {
+        padding: 0 27px;
+      }
+    }
+  }
+}
+
+.img {
+  @include picture(100%, 100%);
+  z-index: 5;
+  &__container {
+    position: relative;
+    height: 100%;
+    @include d-flex(
+      (
+        ju: flex-start,
+      )
+    );
+    max-width: 410px;
+    max-height: 646px;
+  }
+  &__main,
+  &__left,
+  &__right {
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
+  }
+  &__main {
+    position: relative;
+  }
+  &__left,
+  &__right {
+    position: absolute;
+  }
+  &__left {
+    max-width: 190px;
+    max-height: 318px;
+    bottom: -10px;
+    left: -130px;
+  }
+  &__right {
+    max-width: 197px;
+    max-height: 197px;
+    top: 155px;
+    right: -75px;
+  }
+  @media (max-width: 767px) {
+    &__container {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 50%;
+      z-index: 5;
+      transform: translateX(-50%);
+    }
+    &__left {
+      bottom: -15px;
+      left: -80px;
+    }
+    &__right {
+      top: 184px;
+      right: -101px;
+    }
+  }
+}

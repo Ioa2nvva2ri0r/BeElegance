@@ -98,6 +98,9 @@ const Slider = ({
       >
         {content}
       </Swiper>
+      {pagination && pagination.el && (
+        <div className={`${pagination.el.replace(/[^a-z0-9_-]/gi, '')}`}></div>
+      )}
       {navigation && (
         <button className={`${navigation.nextEl.replace(/[^a-z0-9_-]/gi, '')}`}>
           <IconSlide direction="next" />
@@ -110,7 +113,11 @@ const Slider = ({
 Slider.propTypes = {
   option: PropTypes.shape({
     pagination: PropTypes.shape({
+      el: PropTypes.string,
+      bulletClass: PropTypes.string,
+      bulletActiveClass: PropTypes.string,
       clickable: PropTypes.bool,
+      type: PropTypes.string,
     }),
     navigation: PropTypes.shape({
       prevEl: PropTypes.string,
