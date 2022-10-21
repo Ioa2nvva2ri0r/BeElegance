@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// Router
-import { useLocation } from 'react-router-dom';
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { setDataBasket } from '../../../redux/slices/dataStorageSlice';
+// Check Types
+import PropTypes from 'prop-types';
 // Auxiliary Functions
-import searchParam from '../../../auxiliary-functions/searchParam';
-import randomArray from '../../../auxiliary-functions/randomArray';
 import dataForm from '../../../auxiliary-functions/dataform';
 // Swiper-Slider
 import { SwiperSlide } from 'swiper/react';
@@ -22,33 +20,18 @@ import RadioCkeckbox from './RadioCkeckbox';
 // Styles
 import product from './product.module.scss';
 
-const Product = () => {
-  // Router
-  const productID = searchParam(useLocation().search, 'id', '');
+const Product = ({ loading, API, id }) => {
   // Redux
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.clothesAPI.loading);
-  const API = useSelector((state) => (!loading ? state.clothesAPI.data : {}));
   const localStorage = useSelector(
-    (state) => state.clothesStorage.data.filter(({ id }) => id === productID)[0]
+    (state) => state.clothesStorage.data.filter((obj) => obj.id === id)[0]
   );
   // React State
   const [productStorage, setProductStorage] = useState({});
-  const [products, setProducts] = useState([]);
   // React Effect
   useEffect(() => {
-    !loading &&
-      setProducts(
-        randomArray(
-          API.products,
-          API.products.length >= 3 ? 3 : API.products.length
-        )
-      );
-  }, [API]);
-  useEffect(() => {
     setProductStorage(localStorage ? localStorage : {});
-  }, [productID, localStorage]);
-
+  }, [id, localStorage]);
   // Submit Form
   const addToBasket = (e) => {
     e.preventDefault();
@@ -78,7 +61,7 @@ const Product = () => {
     <div className={product.main}>
       <div className={product.content}>
         <Show name={API.name} src={API.src} className={product} />
-        {loading ? (
+        {loading && API.id !== id ? (
           <Skeleton
             option={{
               width: 348,
@@ -173,7 +156,7 @@ const Product = () => {
               },
             }}
             additionalСssClass={[product.slider]}
-            content={(loading ? [...new Array(3)] : products).map(
+            content={(loading ? [...new Array(3)] : API.products).map(
               (item, index) => (
                 <SwiperSlide key={`product-slide-${index + 1}`}>
                   <Card {...item} />
@@ -185,6 +168,12 @@ const Product = () => {
       </div>
     </div>
   );
+};
+
+Product.propTypes = {
+  loading: PropTypes.bool,
+  API: PropTypes.object,
+  id: PropTypes.string,
 };
 
 export default Product;

@@ -145,7 +145,7 @@ const Basket = () => {
                               env.REACT_APP__PATH_PRODUCT
                             }${encodeURI(obj.id)}`}
                             className={basket.link}
-                            onClick={() => dispatch(clothesDataAPI(obj.id))}
+                            onClick={() => dispatch(clothesDataAPI())}
                           >
                             <span className={basket.content__title_category}>
                               {`${obj.category} (${obj.size})`}{' '}

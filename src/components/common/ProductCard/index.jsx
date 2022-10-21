@@ -51,7 +51,7 @@ const ProductCard = ({ id, name, category, src, price }) => {
                   env.REACT_APP__PATH_PRODUCT
                 }${encodeURI(id)}`}
                 className={card.link}
-                onClick={() => dispatch(clothesDataAPI(id))}
+                onClick={() => dispatch(clothesDataAPI())}
               >
                 <span className={card.link__category}>{category}</span>
                 <span className={card.link__name}>

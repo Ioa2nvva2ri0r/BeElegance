@@ -10,7 +10,7 @@ const env = process.env;
 
 export const clothesDataAPI = createAsyncThunk(
   'clothes/getDataAPI',
-  async (id) => {
+  async () => {
     const response = await axios({
       method: 'GET',
       url: `${env.REACT_APP__API_URL}/${
@@ -20,18 +20,7 @@ export const clothesDataAPI = createAsyncThunk(
 
     const data = response.data[0].data;
 
-    return id
-      ? data
-          .map((obj) => {
-            if (obj.id === id)
-              obj.products = data.filter(
-                (elem) => elem.category === obj.category && elem.id !== id
-              );
-
-            return obj;
-          })
-          .filter((obj) => obj.id === id)[0]
-      : { categories: [...new Set(data.map((obj) => obj.category))], data };
+    return { categories: [...new Set(data.map((obj) => obj.category))], data };
   }
 );
 

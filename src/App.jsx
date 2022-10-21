@@ -17,15 +17,14 @@ function App() {
   // Router
   const search = useLocation().search;
   const path = searchParam(search, 'section', '');
+  const productID = searchParam(search, 'id', '');
   // Redux
   const dispatch = useDispatch();
   // React State
   const [toggleModal, setToggleModal] = useState(false);
   // React Effect
   useEffect(() => {
-    path !== 'product'
-      ? dispatch(clothesDataAPI())
-      : dispatch(clothesDataAPI(searchParam(search, 'id', '')));
+    dispatch(clothesDataAPI());
   }, [path]);
 
   return (
@@ -36,7 +35,13 @@ function App() {
           <Route
             path="/"
             element={
-              <main>{path === '' ? <Home /> : <Page path={path} />}</main>
+              <main>
+                {path === '' ? (
+                  <Home />
+                ) : (
+                  <Page path={path} productID={productID} />
+                )}
+              </main>
             }
           />
         </Routes>
