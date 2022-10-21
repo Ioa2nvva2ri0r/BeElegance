@@ -11,20 +11,22 @@ const env = process.env;
 export const orderDataAPI = createAsyncThunk(
   'order/postDataAPI',
   async (data) => {
-    const response = await axios({
-      method: 'POST',
-      url: `${env.REACT_APP__API_URL}/${env.REACT_APP__API_PATH_POST}`,
-      data: {
-        path: env.PUBLIC_URL,
-        ...data,
-      },
-    });
+    if (data && data !== null) {
+      const response = await axios({
+        method: 'POST',
+        url: `${env.REACT_APP__API_URL}/${env.REACT_APP__API_PATH_POST}`,
+        data: {
+          path: env.PUBLIC_URL,
+          ...data,
+        },
+      });
 
-    return {
-      status: response.status,
-      message:
-        response.status >= 200 || response.status <= 299 ? 'OK' : 'ERROR',
-    };
+      return {
+        status: response.status,
+        message:
+          response.status >= 200 || response.status <= 299 ? 'OK' : 'ERROR',
+      };
+    } else return null;
   }
 );
 

@@ -13,6 +13,7 @@
   &__pagination {
     position: absolute;
     display: flex;
+    z-index: 20;
     width: max-content !important;
     bottom: 54px !important;
     right: 173px !important;
@@ -114,6 +115,10 @@
       height: inherit;
       width: 67px;
       background-color: #6e9c9f1a;
+      @include transition(background-color);
+      & svg > path {
+        @include transition(stroke);
+      }
     }
     &_desc {
       @include d-flex(
@@ -126,6 +131,26 @@
       padding: 0 50px;
       background-color: #6e9c9f;
       color: #fff;
+      @include transitions((color, background-color));
+    }
+    &:hover &_icon,
+    &:focus &_icon,
+    &:active &_icon {
+      @include transition(background-color, #6e9c9f);
+      & svg > path {
+        @include transition(stroke, #fff);
+      }
+    }
+    &:hover &_desc,
+    &:focus &_desc,
+    &:active &_desc {
+      @include transitions(
+        (color, background-color),
+        (
+          color: #6e9c9f,
+          background-color: #6e9c9f1a,
+        )
+      );
     }
   }
   @media (max-width: 1225px) {
@@ -165,6 +190,22 @@
         & svg > path {
           stroke: #fff;
         }
+      }
+      &:hover &_icon,
+      &:focus &_icon,
+      &:active &_icon {
+        @include transition(background-color, #f6c4a5);
+      }
+      &:hover &_desc,
+      &:focus &_desc,
+      &:active &_desc {
+        @include transitions(
+          (color, background-color),
+          (
+            color: #fff,
+            background-color: #f6c4a59c,
+          )
+        );
       }
     }
   }

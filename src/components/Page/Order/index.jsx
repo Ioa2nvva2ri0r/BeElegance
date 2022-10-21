@@ -22,8 +22,7 @@ const Order = () => {
   // Redux
   const dispatch = useDispatch();
   const localStorage = useSelector((state) => state.clothesStorage.data);
-  const { loading, response } = useSelector((state) => state.orderAPI);
-  const error = useSelector((state) => state.orderAPI.error);
+  const { loading, response, error } = useSelector((state) => state.orderAPI);
   // Final Price Logic
   const totalPrice = localStorage
     .map(({ price, amount }) => price * amount)

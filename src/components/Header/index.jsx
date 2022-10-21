@@ -36,14 +36,14 @@ const Header = ({ funOpenModal }) => {
       setMenu(window.innerWidth <= 1061);
     });
   }, []);
-
-  const addCssClass = path === '' && screenWidth <= 766 && screenWidth >= 550;
+  // Check Screen Size
+  const importantSize = path === '' && screenWidth <= 766 && screenWidth >= 550;
 
   return (
     <header
       className={arrayStringToString([
         header.main,
-        addCssClass && header.main__alert,
+        importantSize && header.main__alert,
       ])}
     >
       <Logo />
@@ -62,7 +62,7 @@ const Header = ({ funOpenModal }) => {
             id="order-call"
             className={arrayStringToString([
               header.btn__call,
-              addCssClass && header.btn__call_alert,
+              importantSize && header.btn__call_alert,
             ])}
             aria-label="Заказать звонок"
             onClick={() => funOpenModal(true)}
@@ -70,7 +70,9 @@ const Header = ({ funOpenModal }) => {
             <IconTel />
           </button>
           <Tel
-            className={addCssClass ? header.link__tel_alert : header.link__tel}
+            className={
+              importantSize ? header.link__tel_alert : header.link__tel
+            }
           />
         </div>
         <div>
@@ -79,13 +81,16 @@ const Header = ({ funOpenModal }) => {
               to={`${env.REACT_APP__PATH_SEARCH}basket`}
               className={arrayStringToString([
                 header.btn__basket,
-                addCssClass && header.btn__basket_alert,
+                importantSize && header.btn__basket_alert,
               ])}
               aria-label="Корзина"
             >
               <IconBasket />
               <span
-                className={header.btn__basket_length}
+                className={arrayStringToString([
+                  header.btn__basket_length,
+                  importantSize && header.btn__basket_length__alert,
+                ])}
                 role="note"
                 aria-label="Количество в закладок в корзине"
               >
@@ -96,7 +101,7 @@ const Header = ({ funOpenModal }) => {
             <button
               className={arrayStringToString([
                 header.btn__basket_disabled,
-                addCssClass && header.btn__basket_alert,
+                importantSize && header.btn__basket_alert,
               ])}
               aria-label="Корзина"
             >
@@ -111,7 +116,8 @@ const Header = ({ funOpenModal }) => {
               ref={btnMenuRef}
               className={arrayStringToString([
                 header.btn__menu,
-                addCssClass && header.btn__menu_alert,
+                importantSize && header.btn__menu_alert,
+                !menu && header.btn__menu__close,
               ])}
               aria-label="Меню"
               onClick={() => setMenu(!menu)}

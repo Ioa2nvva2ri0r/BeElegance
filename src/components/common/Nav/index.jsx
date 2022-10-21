@@ -26,9 +26,9 @@ const Nav = ({ screenWidth, btnOpen, close, funClose, cssModule = {} }) => {
     navRef.current && navRef.current.classList.add(cssModule.nav__close);
     setTimeout(() => {
       funClose(!close);
-    }, 395);
+    }, 390);
   };
-
+  // React Effect
   useEffect(() => {
     const handleClick = (e) => {
       if (!navRef.current.contains(e.target) && !btnOpen.contains(e.target))
@@ -37,6 +37,7 @@ const Nav = ({ screenWidth, btnOpen, close, funClose, cssModule = {} }) => {
 
     if (btnOpen && navRef.current && screenWidth <= 1060)
       document.body.addEventListener('click', handleClick);
+
     return () => {
       document.body.removeEventListener('click', handleClick);
     };

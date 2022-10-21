@@ -45,6 +45,9 @@
 
 .img {
   @include block-size(442px, 547px);
+  &__box {
+    position: relative;
+  }
   @media (max-width: 1060px) {
     @include block-size(320px, 405px);
   }

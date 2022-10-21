@@ -133,6 +133,9 @@
       font-weight: 500;
       line-height: 15px;
       color: #fff;
+      &__alert {
+        background-color: #f6c4a5;
+      }
     }
     &_disabled {
       position: relative;
@@ -181,6 +184,11 @@
     }
   }
   &__call {
+    @include d-flex(
+      (
+        al: center,
+      )
+    );
     margin-right: 13px;
     @include transition(transform);
     &:hover,
@@ -198,6 +206,19 @@
   }
   &__menu {
     margin-left: 25px;
+    max-width: 24px;
+    max-height: 24px;
+    @include transitions((max-width, max-height));
+    &__close {
+      overflow: hidden;
+      @include transitions(
+        (max-width, max-height),
+        (
+          max-width: 0px,
+          max-height: 0px,
+        )
+      );
+    }
     & svg > rect {
       @include transition(fill);
     }

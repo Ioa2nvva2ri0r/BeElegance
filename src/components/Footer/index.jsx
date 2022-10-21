@@ -58,7 +58,7 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <img src={Visa} alt="visa-card" />
+            <img width={68} height={22} src={Visa} alt="visa-card" />
           </li>
         </ul>
       </div>

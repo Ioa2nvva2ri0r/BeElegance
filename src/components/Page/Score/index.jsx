@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState, useLayoutEffect } from 'react';
 // Router
 import { Link, useLocation } from 'react-router-dom';
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
-import { setPage, setPages } from '../../../redux/slices/cardLimitSlice';
+import { useSelector } from 'react-redux';
 // Auxiliary Functions
 import searchParam from '../../../auxiliary-functions/searchParam';
 import smoothScroll from '../../../auxiliary-functions/smoothScroll';
@@ -12,37 +11,57 @@ import { arrayStringToString } from '../../../auxiliary-functions/сonvert';
 // Components
 import Skeleton from '../../common/Skeleton';
 import Card from '../../common/ProductCard';
-import Pages from './Pages';
+import NumPages from './NumPages';
 // Styles
 import score from './score.module.scss';
 
 const Score = () => {
-  function dataFilter(data, category) {
-    return data
+  const limit = (screen) => (screen >= 1075 ? 6 : screen >= 760 ? 4 : 2);
+  const dataFilter = (data, category) =>
+    data
       ? data.filter((obj) =>
           category === 'Все' ? obj : obj.category === category
         )
       : [];
-  }
   // .env
   const env = process.env;
+  // Router
+  const activePage = Number(
+    useLocation().hash !== '' ? useLocation().hash.slice(1) : 1
+  );
   // Redux
-  const dispatch = useDispatch();
-  const { activePage, limit } = useSelector((state) => state.cardLimit);
   const activeCategory = searchParam(useLocation().search, 'category', 'Все');
   const loading = useSelector((state) => state.clothesAPI.loading);
   const clothes = useSelector((state) =>
     state.clothesAPI.data !== null ? state.clothesAPI.data : {}
   );
+  // React State
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [cardLimit, setCardLimit] = useState(limit(window.innerWidth));
+  const [pages, setPages] = useState([]);
   // React Ref
   const listRef = useRef();
+  // React LayoutEffect
+  useLayoutEffect(() => {
+    window.addEventListener('resize', () => setScreenWidth(window.innerWidth));
+  }, []);
   // React Effect
   useEffect(() => {
     listRef.current && smoothScroll('#score-list', 0);
   }, [activeCategory]);
   useEffect(() => {
-    dispatch(setPages(dataFilter(clothes.data, activeCategory).length));
-  }, [loading, activeCategory]);
+    setCardLimit(limit(screenWidth));
+    setPages(
+      Array.from(
+        {
+          length: Math.ceil(
+            dataFilter(clothes.data, activeCategory).length / cardLimit
+          ),
+        },
+        (v, i) => i + 1
+      )
+    );
+  }, [screenWidth, loading, activeCategory]);
 
   return (
     <>
@@ -71,7 +90,6 @@ const Score = () => {
                     score.btn,
                     activeCategory === category && score.btn__active,
                   ])}
-                  onClick={() => dispatch(setPage(1))}
                 >
                   {category}
                 </Link>
@@ -82,10 +100,10 @@ const Score = () => {
       </ul>
       <ul className={score.list__products}>
         {(loading
-          ? limit.array
+          ? [...new Array(cardLimit)]
           : dataFilter(clothes.data, activeCategory).slice(
-              activePage === 1 ? 0 : limit.card * (activePage - 1),
-              limit.card * activePage
+              activePage === 1 ? 0 : cardLimit * (activePage - 1),
+              cardLimit * activePage
             )
         ).map((obj, index) => (
           <li
@@ -96,7 +114,11 @@ const Score = () => {
           </li>
         ))}
       </ul>
-      <Pages category={activeCategory} />
+      <NumPages
+        category={activeCategory}
+        activePage={activePage}
+        pages={pages}
+      />
     </>
   );
 };

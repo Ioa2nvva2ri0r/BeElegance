@@ -57,7 +57,18 @@
     }
     &_submit {
       @include us-btn();
+      @include d-flex(
+        (
+          al: center,
+          ju: center,
+        )
+      );
       width: 100%;
+      & svg {
+        width: 25px;
+        height: 25px;
+        margin-left: 10px;
+      }
     }
   }
   @media (max-width: 620px) {
@@ -91,5 +102,40 @@
         font-size: 12px;
       }
     }
+  }
+}
+
+.status {
+  position: absolute;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  @include d-flex(
+    (
+      al: center,
+      ju: center,
+    )
+  );
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px 60px;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  background-color: #fff;
+  &__ok {
+    color: #6e9c9ff2;
+  }
+  &__err {
+    color: red;
+  }
+  @media (max-width: 620px) {
+    padding: 20px 40px;
+    font-size: 20px;
+  }
+  @media (max-width: 550px) {
+    padding: 20px;
   }
 }

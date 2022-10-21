@@ -2,9 +2,6 @@
 import React from 'react';
 // Router
 import { Link } from 'react-router-dom';
-// Redux
-import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../../../../redux/slices/cardLimitSlice';
 // Check Types
 import PropTypes from 'prop-types';
 // Swiper-Slider
@@ -17,12 +14,9 @@ import Slider from '../../../common/Slider';
 // Styles
 import styles from './pages.module.scss';
 
-const Pages = ({ category }) => {
+const NumPages = ({ category, activePage, pages }) => {
   // .env
   const env = process.env;
-  // Redux
-  const dispatch = useDispatch();
-  const { activePage, pages } = useSelector((state) => state.cardLimit);
 
   const linkPage = (page) => (
     <Link
@@ -31,10 +25,7 @@ const Pages = ({ category }) => {
         styles.link,
         activePage === page && styles.link__active,
       ])}
-      onClick={() => {
-        dispatch(setPage(page));
-        smoothScroll('#score-list', 0);
-      }}
+      onClick={() => smoothScroll('#score-list', 0)}
     >
       {page}
     </Link>
@@ -45,7 +36,7 @@ const Pages = ({ category }) => {
     (pages.length <= 3 ? (
       <ul className={styles.list}>
         {pages.map((page) => (
-          <li className={styles.item} key={`page-${page}`}>
+          <li className={styles.item} key={`numPage-score-${page}`}>
             {linkPage(page)}
           </li>
         ))}
@@ -65,7 +56,7 @@ const Pages = ({ category }) => {
           }}
           additionalСssClass={[styles.slider]}
           content={pages.map((page) => (
-            <SwiperSlide className={styles.item} key={`page-${page}`}>
+            <SwiperSlide className={styles.item} key={`numPage-score-${page}`}>
               {linkPage(page)}
             </SwiperSlide>
           ))}
@@ -75,11 +66,10 @@ const Pages = ({ category }) => {
   );
 };
 
-Pages.propTypes = {
-  pages: PropTypes.array,
-  activePage: PropTypes.number,
+NumPages.propTypes = {
   category: PropTypes.string,
-  funSwitchPage: PropTypes.func,
+  activePage: PropTypes.number,
+  pages: PropTypes.array,
 };
 
-export default Pages;
+export default NumPages;
