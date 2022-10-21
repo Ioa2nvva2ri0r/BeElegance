@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/be_elegance/static/css/main.114dbd36.css",
-    "main.js": "/be_elegance/static/js/main.0690a769.js",
+    "main.css": "/be_elegance/static/css/main.83481eec.css",
+    "main.js": "/be_elegance/static/js/main.464b7452.js",
     "static/media/Visa.svg": "/be_elegance/static/media/Visa.766de341f3e0e9e005ee08cecbb73f33.svg",
     "index.html": "/be_elegance/index.html",
     "static/media/lazy-img.svg": "/be_elegance/static/media/lazy-img.95064264df5ac005bab4b21fe7fdb07e.svg",
-    "main.114dbd36.css.map": "/be_elegance/static/css/main.114dbd36.css.map",
-    "main.0690a769.js.map": "/be_elegance/static/js/main.0690a769.js.map"
+    "main.83481eec.css.map": "/be_elegance/static/css/main.83481eec.css.map",
+    "main.464b7452.js.map": "/be_elegance/static/js/main.464b7452.js.map"
   },
   "entrypoints": [
-    "static/css/main.114dbd36.css",
-    "static/js/main.0690a769.js"
+    "static/css/main.83481eec.css",
+    "static/js/main.464b7452.js"
   ]
 }
