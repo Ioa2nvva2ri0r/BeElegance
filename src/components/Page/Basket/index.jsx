@@ -50,7 +50,7 @@ const Basket = () => {
       });
     }
   }, [data]);
-
+  // Active coupon
   const onClickBtnCoupon = () => {
     const active = coupons.filter((obj) => obj.coupon === valueCoupon)[0];
 
