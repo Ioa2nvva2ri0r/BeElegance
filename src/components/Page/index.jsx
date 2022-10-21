@@ -56,7 +56,6 @@ const Page = ({ path, productID }) => {
 
     return {};
   });
-  console.log(product);
   const productLocalStorage = useSelector((state) =>
     product !== null
       ? state.clothesStorage.data.filter((obj) => obj.id === productID)[0]
