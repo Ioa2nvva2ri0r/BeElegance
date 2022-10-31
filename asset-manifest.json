@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/be_elegance/static/css/main.83481eec.css",
-    "main.js": "/be_elegance/static/js/main.464b7452.js",
-    "static/media/Visa.svg": "/be_elegance/static/media/Visa.766de341f3e0e9e005ee08cecbb73f33.svg",
-    "index.html": "/be_elegance/index.html",
-    "static/media/lazy-img.svg": "/be_elegance/static/media/lazy-img.95064264df5ac005bab4b21fe7fdb07e.svg",
-    "main.83481eec.css.map": "/be_elegance/static/css/main.83481eec.css.map",
-    "main.464b7452.js.map": "/be_elegance/static/js/main.464b7452.js.map"
+    "main.css": "/BeElegance/static/css/main.3f27bda1.css",
+    "main.js": "/BeElegance/static/js/main.328c6a8e.js",
+    "static/media/Visa.svg": "/BeElegance/static/media/Visa.766de341f3e0e9e005ee08cecbb73f33.svg",
+    "index.html": "/BeElegance/index.html",
+    "static/media/lazy-img.svg": "/BeElegance/static/media/lazy-img.95064264df5ac005bab4b21fe7fdb07e.svg",
+    "main.3f27bda1.css.map": "/BeElegance/static/css/main.3f27bda1.css.map",
+    "main.328c6a8e.js.map": "/BeElegance/static/js/main.328c6a8e.js.map"
   },
   "entrypoints": [
-    "static/css/main.83481eec.css",
-    "static/js/main.464b7452.js"
+    "static/css/main.3f27bda1.css",
+    "static/js/main.328c6a8e.js"
   ]
 }
