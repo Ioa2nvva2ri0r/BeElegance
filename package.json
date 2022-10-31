@@ -2,7 +2,7 @@
   "name": "be_elegance",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ioa2nvva2ri0r.github.io/be_elegance/",
+  "homepage": "https://ioa2nvva2ri0r.github.io/BeElegance/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.5",
