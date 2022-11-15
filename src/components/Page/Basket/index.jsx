@@ -59,7 +59,7 @@ const Basket = () => {
       dispatch(
         setDataBasket({
           option: {
-            key: 'basket',
+            key: 'basket-elegance',
             method: 'REWRITE',
             product: Array.from(data).map((obj) => {
               return { ...obj, coupon: active };
@@ -122,7 +122,7 @@ const Basket = () => {
                           dispatch(
                             setDataBasket({
                               option: {
-                                key: 'basket',
+                                key: 'basket-elegance',
                                 method: 'DELETE',
                                 product: obj,
                               },

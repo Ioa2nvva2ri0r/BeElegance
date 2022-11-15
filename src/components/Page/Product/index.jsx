@@ -49,7 +49,7 @@ const Product = ({ loading, API, id }) => {
     dispatch(
       setDataBasket({
         option: {
-          key: 'basket',
+          key: 'basket-elegance',
           method: e.nativeEvent.submitter.dataset.method,
           product: data,
         },

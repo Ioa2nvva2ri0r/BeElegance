@@ -21,7 +21,7 @@ const RadioCkeckbox = ({ name, data, productDataBasket, active }) => {
     dispatch(
       setDataBasket({
         option: {
-          key: 'basket',
+          key: 'basket-elegance',
           method: 'PUT',
           product: { ...productDataBasket, [name]: value },
         },

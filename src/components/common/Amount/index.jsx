@@ -43,7 +43,7 @@ const Amount = ({ value, productID, cssClasses = [] }) => {
             dispatch(
               setDataBasket({
                 option: {
-                  key: 'basket',
+                  key: 'basket-elegance',
                   method: 'PUT',
                   product: { ...productlocalStorage, amount: value },
                 },

@@ -55,7 +55,7 @@ const Order = () => {
       dispatch(
         setDataBasket({
           option: {
-            key: 'basket',
+            key: 'basket-elegance',
             method: 'CLEAR',
           },
         })

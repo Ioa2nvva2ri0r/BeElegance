@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import dataStorage from '../../auxiliary-functions/dataStorage';
 
-const dataBasket = dataStorage({ key: 'basket', section: 'Корзина' });
+const dataBasket = dataStorage({ key: 'basket-elegance', section: 'Корзина' });
 
 const initialState = {
   data: dataBasket,
