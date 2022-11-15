@@ -44,9 +44,9 @@ export default function dataStorage(
 
       return getItem();
     };
+    !getItem() && setItem([]);
 
     let store = getItem();
-    !store && setItem([]);
     const index =
       store.length !== 0 &&
       product instanceof Object &&
