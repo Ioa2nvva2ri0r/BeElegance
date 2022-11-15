@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/BeElegance/static/css/main.7320475a.css",
-    "main.js": "/BeElegance/static/js/main.3b3ee863.js",
+    "main.css": "/BeElegance/static/css/main.20af5411.css",
+    "main.js": "/BeElegance/static/js/main.913ce567.js",
     "static/media/Visa.svg": "/BeElegance/static/media/Visa.766de341f3e0e9e005ee08cecbb73f33.svg",
     "index.html": "/BeElegance/index.html",
     "static/media/lazy-img.svg": "/BeElegance/static/media/lazy-img.95064264df5ac005bab4b21fe7fdb07e.svg",
-    "main.7320475a.css.map": "/BeElegance/static/css/main.7320475a.css.map",
-    "main.3b3ee863.js.map": "/BeElegance/static/js/main.3b3ee863.js.map"
+    "main.20af5411.css.map": "/BeElegance/static/css/main.20af5411.css.map",
+    "main.913ce567.js.map": "/BeElegance/static/js/main.913ce567.js.map"
   },
   "entrypoints": [
-    "static/css/main.7320475a.css",
-    "static/js/main.3b3ee863.js"
+    "static/css/main.20af5411.css",
+    "static/js/main.913ce567.js"
   ]
 }
